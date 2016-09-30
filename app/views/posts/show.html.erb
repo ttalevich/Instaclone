@@ -1,0 +1,10 @@
+<%= image_tag(@post.image.url(:medium)) %>
+<br>
+<p>
+	<%= @post.description %>
+</p>
+<% if current_user %>
+	<%= link_to edit_post_path(@post) %>
+<% end %>
+
+

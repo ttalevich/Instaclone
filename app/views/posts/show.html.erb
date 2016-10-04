@@ -3,7 +3,7 @@
 <p>
 	<%= @post.description %>
 </p>
-<% if current_user %>
+<% if current_user == @post.user %>
 	<%= link_to edit_post_path(@post) %>
 <% end %>
 

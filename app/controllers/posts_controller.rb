@@ -5,14 +5,18 @@ class PostsController < ApplicationController
 
   def index
 		@posts = Post.all
+		# @posts = current_user.posts
   end
 
   def show
 		@post = Post.find(params[:id])
+		# @post.user = current_user
   end
 	
 	def create 
 		@post = Post.new(permit_post)
+		# NOT WORKING ? ? ? @post.user = current_user
+	
 		if @post.save 
 			flash[:success] = 'Image posted!'
 			redirect_to post_path(@post)
@@ -21,6 +25,7 @@ class PostsController < ApplicationController
 			redirect_to new_post_path
 		end
 	end
+	
 	
 	private 
 		def permit_post
